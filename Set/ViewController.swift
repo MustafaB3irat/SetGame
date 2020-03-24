@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     
     
     
+    @IBOutlet weak var Deal3CardsBtn: UIButton!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet var CardsCollection: [UIButton]!
     
@@ -28,6 +29,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         
         displayCards()
     }
@@ -129,7 +132,7 @@ class ViewController: UIViewController {
                             threeCardsAreSelected(isAMatch: false)
                             
                             //decrement score
-                            score = -5
+                            score = -2
                         }
                         
                     }
@@ -244,7 +247,6 @@ class ViewController: UIViewController {
     @IBAction func Deal3MoreCardsButtonIsPressed(_ sender: UIButton) {
         
         deal3MoreCards()
-        
     }
     
 }
