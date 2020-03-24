@@ -13,6 +13,9 @@
 		C7AC658C2427A782000AAFC0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7AC658A2427A782000AAFC0 /* Main.storyboard */; };
 		C7AC658E2427A784000AAFC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7AC658D2427A784000AAFC0 /* Assets.xcassets */; };
 		C7AC65912427A784000AAFC0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7AC658F2427A784000AAFC0 /* LaunchScreen.storyboard */; };
+		C7AC65992427A7A6000AAFC0 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AC65982427A7A6000AAFC0 /* Card.swift */; };
+		C7AC659B2427AA18000AAFC0 /* SetGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AC659A2427AA18000AAFC0 /* SetGenerator.swift */; };
+		C7AC659D2428E784000AAFC0 /* Rules.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AC659C2428E784000AAFC0 /* Rules.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		C7AC658D2427A784000AAFC0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C7AC65902427A784000AAFC0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C7AC65922427A784000AAFC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C7AC65982427A7A6000AAFC0 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		C7AC659A2427AA18000AAFC0 /* SetGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGenerator.swift; sourceTree = "<group>"; };
+		C7AC659C2428E784000AAFC0 /* Rules.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rules.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +69,9 @@
 				C7AC658D2427A784000AAFC0 /* Assets.xcassets */,
 				C7AC658F2427A784000AAFC0 /* LaunchScreen.storyboard */,
 				C7AC65922427A784000AAFC0 /* Info.plist */,
+				C7AC65982427A7A6000AAFC0 /* Card.swift */,
+				C7AC659A2427AA18000AAFC0 /* SetGenerator.swift */,
+				C7AC659C2428E784000AAFC0 /* Rules.swift */,
 			);
 			path = Set;
 			sourceTree = "<group>";
@@ -138,9 +147,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7AC659B2427AA18000AAFC0 /* SetGenerator.swift in Sources */,
 				C7AC65892427A782000AAFC0 /* ViewController.swift in Sources */,
+				C7AC659D2428E784000AAFC0 /* Rules.swift in Sources */,
 				C7AC65852427A782000AAFC0 /* AppDelegate.swift in Sources */,
 				C7AC65872427A782000AAFC0 /* SceneDelegate.swift in Sources */,
+				C7AC65992427A7A6000AAFC0 /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
