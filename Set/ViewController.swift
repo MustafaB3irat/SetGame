@@ -74,7 +74,7 @@ class ViewController: UIViewController {
         
         
         //cards can be unselected since number of clicked cards is less than 3
-        if SetGenerator.numOfClickedCards < 3 {
+        if setGenerator.numOfClickedCards < 3 {
             
             
             if sender.layer.borderWidth == 0 {
@@ -103,14 +103,14 @@ class ViewController: UIViewController {
                 setGenerator.cards[i].isClicked = clicked
                 
                 if clicked {
-                    SetGenerator.numOfClickedCards += 1
+                    setGenerator.numOfClickedCards += 1
                     
                     // store the clicked cards title in a dictionary
-                    setGenerator.chosenCardsTitles["\(SetGenerator.numOfClickedCards)"] = card.restorationIdentifier
-                
+                    setGenerator.chosenCardsTitles["\(setGenerator.numOfClickedCards)"] = card.restorationIdentifier
+                    
                     //check for matching cards ....
                     
-                    if SetGenerator.numOfClickedCards == 3 {
+                    if setGenerator.numOfClickedCards == 3 {
                         
                         if setGenerator.matchCards() {
                             
@@ -135,7 +135,7 @@ class ViewController: UIViewController {
                     }
                     
                 }else{
-                    SetGenerator.numOfClickedCards -= 1
+                    setGenerator.numOfClickedCards -= 1
                 }
                 break
             }
@@ -162,7 +162,7 @@ class ViewController: UIViewController {
     
     func threeCardsAreSelected(isAMatch: Bool){
         
-        SetGenerator.numOfClickedCards = 0
+        setGenerator.numOfClickedCards = 0
         
         for j in setGenerator.cards.indices {
             

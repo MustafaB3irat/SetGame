@@ -5,7 +5,7 @@ class SetGenerator{
     
     var cards: [Card]
     var numOfCards: Int
-    static var numOfClickedCards : Int = 0
+    var numOfClickedCards : Int = 0
     var rulesSet: Rules
     
     
@@ -16,7 +16,7 @@ class SetGenerator{
         self.rulesSet = Rules()
         self.numOfCards = numOfCards
         self.cards = [Card]()
-        
+        self.numOfClickedCards = 0
         
         
         for _ in 0 ..< numOfCards {
