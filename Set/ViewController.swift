@@ -22,7 +22,11 @@ class ViewController: UIViewController {
     var score: Int = 0 {
         
         didSet{
+            if score != 0{
             scoreLabel.text = String ( Int(scoreLabel.text!)! +  score)
+            }else {
+                scoreLabel.text = "0"
+            }
         }
     }
     
@@ -202,11 +206,13 @@ class ViewController: UIViewController {
         
         var numOfCards = 0
         
+        var isFull : Bool = true
+        
         for card in CardsCollection.indices {
             
             if !CardsCollection[card].isEnabled , numOfCards < 3{
                 
-                
+                isFull = false
                 //we need 3 buttons that are disapled to turn them enabled and provide them with random image -card-
                 CardsCollection[card].isEnabled = true
                 CardsCollection[card].layer.backgroundColor = #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1)
@@ -237,13 +243,28 @@ class ViewController: UIViewController {
             
         }
         
+        if isFull{
+            Deal3CardsBtn.setTitle("Play Again", for: .normal)
+        }
+        
         
     }
     
     
     @IBAction func Deal3MoreCardsButtonIsPressed(_ sender: UIButton) {
         
-        deal3MoreCards()
+        //if there's enough room for cards the deal 3 cards butn is available otherwise it 's coverted for Play again btn
+        if Deal3CardsBtn.currentTitle! != "Play Again" {
+             deal3MoreCards()
+        }else{
+            
+            score = 0
+            setGenerator = SetGenerator(numOfCards : 24)
+            displayCards()
+            
+             Deal3CardsBtn.setTitle("Deal 3 More Cards", for: .normal)
+        }
+       
     }
     
 }

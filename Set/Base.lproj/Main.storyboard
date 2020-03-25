@@ -16,43 +16,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Juw-si-hTJ" userLabel="Score Stack">
-                                <rect key="frame" x="26" y="69" width="362" height="43"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="HOs-Xv-HoW">
-                                        <rect key="frame" x="0.0" y="0.0" width="108" height="43"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6W7-Vr-KNF">
-                                                <rect key="frame" x="0.0" y="0.0" width="81.5" height="43"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xl6-BD-bja">
-                                                <rect key="frame" x="89.5" y="0.0" width="18.5" height="43"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y1p-8w-o1a">
-                                        <rect key="frame" x="116" y="0.0" width="246" height="43"/>
-                                        <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="43" id="nvu-DF-1EI"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                                        <inset key="contentEdgeInsets" minX="15" minY="5" maxX="15" maxY="5"/>
-                                        <state key="normal" title="Deal 3 More Cards">
-                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="Deal3MoreCardsButtonIsPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="f50-tg-GQJ"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="yT4-Iq-qPf" userLabel="Cards">
                                 <rect key="frame" x="-0.5" y="205" width="415" height="637"/>
                                 <subviews>
@@ -269,19 +232,59 @@
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DCJ-u7-EDc">
-                                <rect key="frame" x="0.0" y="180" width="414" height="5"/>
+                                <rect key="frame" x="0.0" y="181" width="414" height="4"/>
                                 <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="4" id="Ewe-gF-Ork"/>
+                                </constraints>
                             </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="HOs-Xv-HoW" userLabel="Score Stack">
+                                <rect key="frame" x="144.5" y="44" width="125.5" height="50"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6W7-Vr-KNF">
+                                        <rect key="frame" x="0.0" y="0.0" width="96" height="50"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xl6-BD-bja">
+                                        <rect key="frame" x="104" y="0.0" width="21.5" height="50"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="nYN-FV-ix6"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y1p-8w-o1a">
+                                <rect key="frame" x="84" y="109.5" width="246" height="43"/>
+                                <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="nvu-DF-1EI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <inset key="contentEdgeInsets" minX="15" minY="5" maxX="15" maxY="5"/>
+                                <state key="normal" title="Deal 3 More Cards">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="Deal3MoreCardsButtonIsPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="f50-tg-GQJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="DCJ-u7-EDc" firstAttribute="top" secondItem="Juw-si-hTJ" secondAttribute="bottom" constant="68" id="09a-uV-gkA"/>
-                            <constraint firstItem="Juw-si-hTJ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="25" id="LrN-ln-B3I"/>
-                            <constraint firstItem="Juw-si-hTJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MhO-yX-QiU"/>
+                            <constraint firstItem="HOs-Xv-HoW" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="P3r-NM-nG3"/>
                             <constraint firstItem="yT4-Iq-qPf" firstAttribute="top" secondItem="DCJ-u7-EDc" secondAttribute="bottom" constant="20" id="TaT-Fd-jvp"/>
+                            <constraint firstItem="HOs-Xv-HoW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="VFB-zr-0dU"/>
+                            <constraint firstItem="DCJ-u7-EDc" firstAttribute="top" secondItem="Y1p-8w-o1a" secondAttribute="bottom" constant="28.5" id="aai-kr-z4B"/>
                             <constraint firstItem="DCJ-u7-EDc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="hfr-bB-FuR"/>
                             <constraint firstItem="yT4-Iq-qPf" firstAttribute="centerX" secondItem="DCJ-u7-EDc" secondAttribute="centerX" id="i0a-6W-JjB"/>
+                            <constraint firstItem="Y1p-8w-o1a" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="meF-Ql-qrK"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="DCJ-u7-EDc" secondAttribute="trailing" id="nfE-fM-rJl"/>
+                            <constraint firstItem="Y1p-8w-o1a" firstAttribute="top" secondItem="HOs-Xv-HoW" secondAttribute="bottom" constant="15.5" id="nug-aQ-Enm"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="yT4-Iq-qPf" secondAttribute="bottom" constant="20" id="yBh-eA-mzd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
