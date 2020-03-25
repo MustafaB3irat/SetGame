@@ -19,9 +19,6 @@ class SetGenerator{
         self.numOfClickedCards = 0
         
         
-        for _ in 0 ..< numOfCards {
-            cards.append(Card(isVisible: false , isMatched: false , isClicked: false))
-        }
         initiateCards()
         
     }
@@ -29,27 +26,19 @@ class SetGenerator{
     
     private func initiateCards(){
         
-        let uniqueNumbers: Set<Int>  = generateUniqueRandomNumbers(size: numOfCards/2, range: numOfCards)
         
-        for i in uniqueNumbers {
-            cards[i] = Card(isVisible: true , isMatched: false, isClicked: false)
-        }
-    }
-    
-    private func generateUniqueRandomNumbers(size: Int , range: Int) -> Set<Int> {
-        
-        var uniqueNumbers: Set<Int> = Set<Int>()
-        
-        while uniqueNumbers.count < size {
+        for i in 0 ..< numOfCards {
             
-            uniqueNumbers.insert(Int.random(in: 0 ..< range ))
+            if i < 12{
+                cards.append(Card(isVisible: false ,  isClicked: false))
+                
+            }else{
+                cards.append(Card(isVisible: true ,isClicked: false))
+            }
         }
         
-        
-        return uniqueNumbers
-        
+        cards.shuffle()
     }
-    
     
     func matchCards()->Bool{
         

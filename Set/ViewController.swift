@@ -177,7 +177,6 @@ class ViewController: UIViewController {
                     
                     cardIsAMatch(card: CardsCollection[j] ,isAMatch: true)
                     
-                    setGenerator.cards[j].isMatched = true
                     setGenerator.cards[j].isClicked = false
                     
                     
@@ -185,7 +184,6 @@ class ViewController: UIViewController {
                     //else remove the border around them
                     cardIsAMatch(card: CardsCollection[j] ,isAMatch: false)
                     
-                    setGenerator.cards[j].isMatched = false
                     setGenerator.cards[j].isClicked = false
                     
                 }
@@ -215,7 +213,6 @@ class ViewController: UIViewController {
                 
                 // connect the button with its mapped card
                 setGenerator.cards[card].isClicked = false
-                setGenerator.cards[card].isMatched = false
                 setGenerator.cards[card].isVisible = true
                 
                 
