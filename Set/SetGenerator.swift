@@ -1,51 +1,73 @@
 
 import Foundation
 
-class SetGenerator{
+struct SetGenerator{
     
-    var cards: [Card]
+    
     var numOfCards: Int
-    var numOfClickedCards : Int = 0
-    var rulesSet: Rules
-    
-    
-    var chosenCardsTitles: [String:String] = [:]
+    var cardContents: [Int: String] = [:]
     
     init( numOfCards: Int){
-        
-        self.rulesSet = Rules()
         self.numOfCards = numOfCards
-        self.cards = [Card]()
-        self.numOfClickedCards = 0
-        
-        
-        initiateCards()
-        
+        initiateCardsContent()
     }
     
+    mutating func initiateCardsContent() -> Void {
+        
+        var index = 0
+        
+        for content in SetRules.allCases {
+            cardContents[index] = content.rawValue
+            index += 1
+        }
+    }
     
-    private func initiateCards(){
+    mutating func initiateCards() -> [Card] {
         
-        
+        var cards: [Card] = [Card]()
+  
         for i in 0 ..< numOfCards {
             
-            if i < 12{
-                cards.append(Card(isVisible: false ,  isClicked: false))
-                
-            }else{
-                cards.append(Card(isVisible: true ,isClicked: false))
+            if i < numOfCards / 2 {
+                cards.append(Card(isVisible: false ,
+                                  isClicked: false ,
+                                  isClickable:  false ,
+                                  content: nil))
+            } else {
+                cards.append( Card(isVisible: true,
+                                   isClicked: false,
+                                   isClickable: true,
+                                   content: generateUniqueCardContent()))
             }
         }
-        
         cards.shuffle()
+        
+        return cards
     }
     
-    func matchCards()->Bool{
+    
+    mutating func generateUniqueCardContent() -> String? {
         
-        return rulesSet.match(card1: chosenCardsTitles["1"]!, card2:chosenCardsTitles["2"]!, card3: chosenCardsTitles["3"]!)
+        //genereates unique, random card content
+        let card = cardContents.randomElement()
+        let content = card?.value
         
+        cardContents.removeValue(forKey: card?.key ?? -1)
+        
+        return content
         
     }
     
+    mutating func generate3UniqueCards() -> (cards: [String?], numOdRemainingCards: Int ){
+        
+        let numOfCards = 3
+        var cards : [String?] = []
+        
+        //genereates unique, 3 random card content for deal 3 cards
+        for _ in 0 ..< numOfCards {
+            cards.append(cardContents.removeValue(forKey:(cardContents.randomElement()?.key ?? -1)))
+        }
+        return (cards, cardContents.count)
+    }
 }
 
