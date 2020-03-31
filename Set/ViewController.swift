@@ -226,10 +226,10 @@ class ViewController: UIViewController {
           cards[index].isClicked = false
           cards[index].isVisible = true
           
-          if let _ = _3cards[numOfCards] {
+          if let cardContent = _3cards[numOfCards] {
             
-            cardsCollection[index].setImage(UIImage(named: _3cards[numOfCards]!), for: .normal)
-            cards[index].content = _3cards[numOfCards]
+            cardsCollection[index].setImage(UIImage(named: cardContent), for: .normal)
+            cards[index].content = cardContent
             numOfCards += 1
           }
         }
@@ -260,8 +260,8 @@ class ViewController: UIViewController {
     let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
     
     alert.addAction(UIAlertAction(title: "Play Again!", style: .cancel, handler: { [weak self] action in
-      if let _ = self {
-        self?.PlayAgain(self!.playAgainBtn)
+      if let weakSelf = self {
+        weakSelf.PlayAgain(weakSelf.playAgainBtn)
       }
     }))
     
