@@ -8,10 +8,12 @@ class Rules {
     let card2Attributes = card2.split(separator: "_")
     let card3Attributes = card3.split(separator: "_")
     
-    let shapes = ["\(card1Attributes[0])" , "\(card2Attributes[0])", "\(card3Attributes[0])"]
-    let numbers = ["\(card1Attributes[1])" , "\(card2Attributes[1])", "\(card3Attributes[1])"]
-    let colors = ["\(card1Attributes[2])" , "\(card2Attributes[2])", "\(card3Attributes[2])"]
-    let shadings = ["\(card1Attributes[3])" , "\(card2Attributes[3])", "\(card3Attributes[3])"]
+    print(card1Attributes , card2Attributes , card3Attributes)
+    
+    var shapes = ["\(card1Attributes[0])" , "\(card2Attributes[0])", "\(card3Attributes[0])"]
+    var numbers = ["\(card1Attributes[1])" , "\(card2Attributes[1])", "\(card3Attributes[1])"]
+    var colors = ["\(card1Attributes[2])" , "\(card2Attributes[2])", "\(card3Attributes[2])"]
+    var shadings = ["\(card1Attributes[3])" , "\(card2Attributes[3])", "\(card3Attributes[3])"]
     
     
     return (shapes.allAreEqual() || shapes.allAreDifferent()) &&
@@ -38,22 +40,25 @@ extension Array where Element == String {
         previousElement = element
       } else {
         isEqual = false
+        break
       }
     }
     return isEqual
   }
   
   
-  func allAreDifferent() -> Bool {
+  mutating func allAreDifferent() -> Bool {
     
-    for elementIndex in 0 ..< self.count - 1 {
+    for index in 0 ..< self.count {
       
-      for otherElementsIndicies in 0 ..< self.count - elementIndex - 1 {
-        
-        if self[otherElementsIndicies] == self[otherElementsIndicies + 1] {
-          return false
-        }
+      let element = self.remove(at: index)
+      
+      if self.contains(element) {
+        return false
+      } else {
+        self.append(element)
       }
+      
     }
     return true
   }

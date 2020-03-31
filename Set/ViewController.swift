@@ -16,8 +16,8 @@ class ViewController: UIViewController {
   @IBOutlet var cardsCollection: [UIButton]!
   @IBOutlet weak var feedbackLabel: UILabel!
   
-  private var chosenCardsTitles: [String: String] = [String: String]()
-  private var chosenCardsIndices: [Int: Int] = [Int: Int]()
+  private var chosenCardsTitles: [String] = []
+  private var chosenCardsIndices: [Int] = []
   private lazy var setGenerator: SetGenerator = SetGenerator(numOfCards: 24)
   private var cards: [Card] = []
   private var numOfClickedCards: Int = 0
@@ -47,19 +47,20 @@ class ViewController: UIViewController {
   @IBAction func CardIsPressed(_ sender: UIButton) {
     
     let cardIndex = sender.tag
-    
     //cards can be unselected since number of clicked cards is less than 3
     if numOfClickedCards < 3 {
       
       if !cards[cardIndex].isClicked {
         
-        sender.layer.borderWidth = 4
+        sender.layer.borderWidth = 5
         sender.layer.borderColor = #colorLiteral(red: 0.9872592135, green: 0.2078811415, blue: 0.05133768179, alpha: 1)
         checkCard(card: sender, clicked: true)
         
       } else {
+        
         sender.layer.borderWidth = 0
         checkCard(card: sender, clicked: false)
+        
       }
     }
   }
@@ -78,8 +79,11 @@ class ViewController: UIViewController {
     cards = setGenerator.initiateCards()
     displayCards()
     numOfClickedCards = 0
+    chosenCardsIndices = []
+    chosenCardsTitles = []
     sender.isHidden = true
     deal3CardsBtn.isHidden = false
+    
   }
   
   private func refreshCards() -> Void {
@@ -87,6 +91,7 @@ class ViewController: UIViewController {
     for card in cardsCollection {
       card.layer.borderWidth = 0
     }
+    
   }
   
   private func displayCards() -> Void {
@@ -110,7 +115,6 @@ class ViewController: UIViewController {
   private func checkCard(card: UIButton , clicked: Bool) -> Void {
     
     let index = card.tag
-    
     cards[index].isClicked = clicked
     
     if clicked {
@@ -118,8 +122,10 @@ class ViewController: UIViewController {
       numOfClickedCards += 1
       
       // store the clicked cards title in a dictionary
-      chosenCardsTitles["\(numOfClickedCards)"] = cards[index].content
-      chosenCardsIndices[numOfClickedCards] = index
+      if let content = cards[index].content {
+        chosenCardsTitles.append(content)
+        chosenCardsIndices.append(index)
+      }
       
       //check for matching cards ....
       if numOfClickedCards == 3 {
@@ -179,29 +185,41 @@ class ViewController: UIViewController {
   private func threeCardsAreSelected(isAMatch: Bool) -> Void {
     
     numOfClickedCards = 0
+    var lastElementContent: String?
+    var lastElementIndex: Int?
     
-    for (key,index) in chosenCardsIndices {
+    for index in 0 ..< chosenCardsIndices.count {
       
-      // if three cards are a match .... hide cards
+      cards[chosenCardsIndices[index]].isClicked = false
+      
       if isAMatch {
         
-        updateCardUI(card: cardsCollection[index] ,isAMatch: true)
-        cards[index].isClicked = false
-        
+        updateCardUI(card: cardsCollection[chosenCardsIndices[index]], isAMatch: true)
       } else {
-        //else deselct 2 older cards
-        numOfClickedCards = 1
-        if key < 3 {
-          updateCardUI(card: cardsCollection[index] ,isAMatch: false)
-          cards[index].isClicked = false
-        } else {
-          chosenCardsIndices[0] = chosenCardsIndices[key]
-          chosenCardsTitles["1"] = chosenCardsTitles["3"]
-        }
         
+        if chosenCardsTitles.last != chosenCardsTitles[index] {
+          
+          updateCardUI(card: cardsCollection[chosenCardsIndices[index]], isAMatch: false)
+        } else {
+          cards[chosenCardsIndices[index]].isClicked = true
+          lastElementContent = chosenCardsTitles.last
+          lastElementIndex = chosenCardsIndices.last
+          
+        }
       }
     }
+    
+    chosenCardsIndices = []
+    chosenCardsTitles = []
+    
+    if let lastElement = lastElementIndex, let content = lastElementContent {
+      
+      numOfClickedCards = 1
+      chosenCardsIndices.append(lastElement)
+      chosenCardsTitles.append(content)
+    }
   }
+  
   
   
   private func deal3MoreCards() -> Void {
@@ -215,7 +233,7 @@ class ViewController: UIViewController {
     if numOfRemainingCards > 0 {
       for index in 0 ..< cardsCollection.count {
         
-        if !cards[index].isClickable && !cardsCollection[index].isEnabled, numOfCards < 3{
+        if !cards[index].isClickable || !cardsCollection[index].isEnabled, numOfCards < 3{
           
           //we need 3 buttons that are disapled to turn them enabled and provide them with random image -card-
           cardsCollection[index].isEnabled = true
@@ -251,7 +269,9 @@ class ViewController: UIViewController {
   
   
   private func matchCards() -> Bool {
-    return Rules.match(card1: chosenCardsTitles["1"]!, card2:chosenCardsTitles["2"]!, card3: chosenCardsTitles["3"]!)
+    
+    return Rules.match(card1: chosenCardsTitles[0], card2:chosenCardsTitles[1], card3: chosenCardsTitles[2])
+    
   }
   
   
