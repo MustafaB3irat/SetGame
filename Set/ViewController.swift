@@ -226,10 +226,10 @@ class ViewController: UIViewController {
           cards[index].isClicked = false
           cards[index].isVisible = true
           
-          if let cardContent = _3cards[numOfCards] {
+          if let _ = _3cards[numOfCards] {
             
-            cardsCollection[index].setImage(UIImage(named: cardContent), for: .normal)
-            cards[index].content = cardContent
+            cardsCollection[index].setImage(UIImage(named: _3cards[numOfCards]!), for: .normal)
+            cards[index].content = _3cards[numOfCards]!
             numOfCards += 1
           }
         }
