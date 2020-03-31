@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="yT4-Iq-qPf" userLabel="Cards">
-                                <rect key="frame" x="-0.5" y="205" width="419.5" height="637"/>
+                                <rect key="frame" x="0.0" y="205" width="419.5" height="637"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" id="6V1-FL-kZ7">
                                         <rect key="frame" x="0.0" y="0.0" width="419.5" height="99.5"/>
@@ -308,7 +308,8 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="leading" secondItem="yT4-Iq-qPf" secondAttribute="leading" constant="0.5" id="42w-L8-S1G"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yT4-Iq-qPf" secondAttribute="trailing" constant="-5.5" id="3mO-jC-7BU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="leading" secondItem="yT4-Iq-qPf" secondAttribute="leading" id="42w-L8-S1G"/>
                             <constraint firstItem="ZRc-Xg-iHG" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="5AC-87-Auc"/>
                             <constraint firstItem="DCJ-u7-EDc" firstAttribute="top" secondItem="ZRc-Xg-iHG" secondAttribute="bottom" constant="28.5" id="6dF-ij-tVI"/>
                             <constraint firstItem="HOs-Xv-HoW" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="P3r-NM-nG3"/>
@@ -316,7 +317,6 @@
                             <constraint firstItem="HOs-Xv-HoW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="VFB-zr-0dU"/>
                             <constraint firstItem="DCJ-u7-EDc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="hfr-bB-FuR"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="DCJ-u7-EDc" secondAttribute="trailing" id="nfE-fM-rJl"/>
-                            <constraint firstItem="yT4-Iq-qPf" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="4.5" id="pc7-cO-l36"/>
                             <constraint firstItem="ZRc-Xg-iHG" firstAttribute="top" secondItem="HOs-Xv-HoW" secondAttribute="bottom" constant="-0.5" id="t65-lf-A6N"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="yT4-Iq-qPf" secondAttribute="bottom" constant="20" id="yBh-eA-mzd"/>
                         </constraints>
